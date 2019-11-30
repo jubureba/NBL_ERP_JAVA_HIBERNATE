@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="jambudb@localhost" uuid="6e91f5f1-b359-4ce2-8e8a-ecb895cb1c0a">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/jambudb?useTimezone=true&amp;serverTimezone=UTC</jdbc-url>
+    </data-source>
+  </component>
+</project>
