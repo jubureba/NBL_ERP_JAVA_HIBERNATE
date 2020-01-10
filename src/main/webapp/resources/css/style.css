@@ -1,38 +1,335 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto|Montserrat|Nunito|Open+Sans+Condensed:300|Raleway&display=swap');
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    background-color: #D3D3D3 !important;
+}
+header {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px !important;
+    background: rgb(51, 55, 59) !important;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+
+}
 
 .header {
-    background-color: rgb(20,52,28);
+    height: 60px !important;
 }
 
-#logotipoSystem {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 200px;
+.panel-logotiposystem {
+    width: 275px ;
+}
+.Rodape{
+
+    width:100%;
+    bottom:0vh;
+    left:0;
+    background: rgb(51, 55, 59) !important;
+    text-align:center;
+    padding: 20px 0;
+    height: 10px !important;
+}
+/* ================ INPUTS ================================= */
+.ui-selectonemenu {
+    width: 287px !important;
+}
+.ui-inputfield {
+    width: 300px !important;
+    background-color: #33373b !important;
+}
+::-webkit-input-placeholder {
+    /*COR DO PLACEHOLDER WebKit browsers*/
+    color: #fff;
+    opacity: .1;
+}
+.ui-inputtext {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    color: white !important;
+}
+.ui-inputfield {
+    text-shadow: none !important;
+}
+.ui-inputmask {
+    color: white !important;
+}
+.ui-selectonemenu-label {
+    color: white !important;
+}
+.ui-password {
+    color: white !important;
+}
+/*======================== TABLE ======================*/
+.panelFunc.ui-panel {
+    border: none !important;
+}
+.ui-panel-content {
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+.ui-panel-titlebar {
+    text-shadow: none !important;
+}
+.ui-datatable .ui-widget-header {
+    background-color: rgb(51, 55, 59) !important;
+    color: rgb(190,204,217) !important;
+    background-image: none !important;
+}
+.panelFunc .ui-widget-header{
+    background-color: white !important;
+    border: 0;
+    background-image: none !important;
 }
 
-/* MENUBAR POR CIMA DO LAYOUT */
-.ui-layout-north {
-    z-index:20 !important;
-    overflow:visible !important;;
+.ui-panel-title {
+    color: rgb(47,51,56) !important;
+}
+.ui-paginator-current {
+    text-shadow: none !important;
+    color: #33373b !important;
+    font-size: 10pt;
+}
+.ui-datatable tr.ui-datatable-even:hover, .ui-datatable tr.ui-datatable-odd:hover {
+    background: rgb(47,51,56) !important;
+    color: rgb(190,204,217) !important;
+}
+.ui-state-hover {
+    box-shadow: none !important;
+}
+.datatable .ui-datatable-even {
+    background-color:#D3D3D3;
+    color: #778899;
+    background-image: none !important;
+}
+.datatable .ui-datatable-odd {
+    background-color:#778899;
+    color: #D3D3D3;
+    background-image: none !important;
+}
+.ui-datatable .ui-datatable-data .ui-datatable-even td{
+}
+.ui-datatable thead th {
+    background-image: none !important;
+    background-color: rgb(51, 55, 59) !important;
+    color: rgb(190,204,217) !important;
+    text-shadow: none !important;
+    height: 30px;
 }
 
-.ui-layout-north .ui-layout-unit-content {
-    overflow:visible !important;
+.ui-datatable .ui-outputlabel {
+    font-size: 11pt !important;
 }
-
-/* HEADER */
-
-.menu-sistema {
+.ui-datatable table > thead > tr > th, .ui-datatable table > tbody, .ui-datatable table > tbody > tr {
+    border: none !important;
+}
+.ui-datatable table > tbody > tr > td {
+    border: white 1px solid;
+}
+.ui-datatable tbody > tr.ui-widget-content.ui-state-highlight {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+.btn-delete {
+    padding: 3px 3px !important;
+    background: transparent !important;
+    border-radius: 50%;
+    box-shadow: none !important;
     border: 0px !important;
-    padding: 0px !important;
-    background: none !important;
+}
+.btn-delete:hover {
+    background: rgb(190,204,217) !important;
+}
+.btn-delete .ui-icon {
+    color: rgb(47,51,56) !important;
+    box-shadow: none !important;
+    border: 0px !important;
+    text-align: center !important;
+    margin-top: -8px !important;
+}
+
+.btnTable.ui-button {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin: 10px 5px !important;
+    background: rgb(190,204,217) !important;
+}
+.btnTable.ui-button-text {
+    text-align: center !important;
+    background: rgb(190,204,217) !important;
+}
+
+.btnTable.ui-menubutton, .btnTable .ui-button{
+    border-radius: 0 !important;
+    background: #beccd9 !important;
+    box-shadow: none !important;
+}
+
+.btnTable.ui-menubutton{
+    margin: 10px 5px !important;
+}
+
+.ui-button-text {
+    font-size: 10pt;
+}
+.ui-paginator-first, .ui-paginator-prev, .ui-paginator-next, .ui-paginator-last {
+    background-color: #beccd9 !important;
+    background-image: none !important;
+    box-shadow: none !important;
+}
+
+.ui-paginator-rpp-options {
+    background-color: #beccd9 !important;
+    color: #33373b !important;
+    box-shadow: none !important;
+    font-size: 10pt !important;
+}
+
+.btnViewTable {
+    background: #5395ff !important;
+    color: white !important;
+    font-size: 10pt !important;
+    box-shadow: none !important;
+    padding: 1px !important;
+    margin: 1px !important;
+    text-shadow: none !important;
+    text-align: center !important;
+}
+.btnEditTable {
+    background: #ff9d5b !important;
+    color: white !important;
+    font-size: 10pt !important;
+    box-shadow: none !important;
+    padding: 1px !important;
+    margin: 1px !important;
+    text-shadow: none !important;
+    text-align: center !important;
+
+}
+.btnDeleteTable {
+    background: #ff2b63 !important;
+    color: white !important;
+    font-size: 10pt !important;
+    box-shadow: none !important;
+    padding: 1px !important;
+    margin: 1px !important;
+    text-shadow: none !important;
+    text-align: center !important;
+}
+
+.ui-state-hover {
+    background: rgb(190,204,217) !important;
+}
+.ui-menuitem-text {
+    font-size: 10pt;
+    margin: 0 10px;
+}
+
+.btnTable .ui-icon-triangle-1-s {
+    left: 96px !important;
+}
+
+/* ======================= MODAL ================================= */
+.modal-dialog {
+    height: auto !important;
+}
+.ui-dialog {
+    height: auto !important;
+}
+.ui-dialog-titlebar {
+    /* BARRA SUPERIOR */
+    background: rgb(51, 55, 59) !important;
+    color: rgb(190,204,217) !important;
+    text-shadow: 0px 0px !important;
+}
+.modal-dialog .ui-widget-header {
+    background-color: rgb(51, 55, 59) !important;
+    color: rgb(190,204,217) !important;
+    background-image: none !important;
+}
+.ui-panelgrid-cell {
+    background: transparent !important;
+}
+.btn-back {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin: 0 20px 0 0 !important;
+    background: rgb(190,204,217) !important;
+}
+.btn-back:hover {
+    background-color: #ddd !important;
+    color: black !important;
+}
+/* GRID INTERFACE DO SISTEMA */
+.grid-container {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 0.3fr 2.1fr;
+    grid-template-rows: 0.3fr 2.6fr 0.1fr;
+    grid-template-areas: "menu-lateral cabecalho" "menu-lateral index" "menu-lateral rodape";
+}
+.menu-lateral {
+    grid-area: menu-lateral;
+    width: 275px !important;
+    box-shadow: 5px 0px rgba(51, 55, 59, .2);
+    background-color: rgb(51, 55, 59) !important;
+    height: 100%;
+}
+.cabecalho {
+    grid-area: cabecalho;
+}
+.index {
+    grid-area: index;
+}
+.rodape {
+    grid-area: rodape;
+
+}
+@media only screen and (max-width: 1700px) {
+    .content {
+        margin-top: 50px !important;
+    }
+}
+@media only screen and (max-height: 900px) {
+    .content {
+        margin-top: 50px !important;
+    }
+
+}
+.ui-column-filter {
+    display:  none !important;
 }
 
 
-.ui-toolbar {
-    background: #fff;
-    background-color: #fff !important;
+.white-button.ui-button.ui-state-default {
+    background-color: #ffffff;
+    color: #222222;
+    border-color: #d6d6d6;
+    /* with the exported variables from Nova and Luna Themes*/
+
+}
+.search {
+    float: right;
+    margin: 10px 5px !important;
 }
 
-/* BUTTON HEADER */
+.search .ui-inputfield{
+    background: #beccd9 !important;
+    color: #33373b !important;
+    font-size: 10pt;
+
+}

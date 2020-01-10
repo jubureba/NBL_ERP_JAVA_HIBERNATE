@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:body>
+
+    <h:form id="formEdit" >
+        <p:messages id="messages" closable="true">
+            <p:autoUpdate/>
+        </p:messages>
+        <p:growl id="growl" showDetail="true" life="5000" />
+        <p:panelGrid columns="2">
+            <f:facet name="header"/>
+            <p:outputLabel for="cargo" value="Tipo Usuário"/>
+            <p:selectOneMenu id="cargo" value="#{user.users.cargo}" required="true" requiredMessage="selecione um cargo para este usuário!"  >
+                <f:selectItem itemLabel="selecione uma opção" itemValue="" itemDescription="não selecionavel"  noSelectionOption="true" />
+                <f:selectItems value="#{user.cargo}"/>
+            </p:selectOneMenu>
+
+            <p:outputLabel for="nome" value="Nome"/>
+            <p:inputText styleClass="inputTextRegister" id="nome" value="#{user.users.nome}" required="true" label="nome"
+                         requiredMessage="O nome não pode ser vazio!" />
+
+            <p:outputLabel for="email" value="Email"/>
+            <p:inputText id="email" value="#{user.users.email}" required="true"
+                         requiredMessage="O email não pode ser vazio!" type="email" >
+                <f:validateLength minimum="2" for="email"/>
+            </p:inputText>
+
+            <p:outputLabel for="telefone" value="Telefone"/>
+            <p:inputMask mask="(99)99999-9999" id="telefone" value="#{user.users.phone}"
+                         placeholder="telefone"/>
+
+            <p:outputLabel for="login" value="Login"/>
+            <p:inputText id="login" value="#{user.users.login}" required="true"
+                         requiredMessage="O login não pode ser vazio!" >
+                <f:validateLength minimum="2"/>
+            </p:inputText>
+
+            <p:outputLabel for="password" value="Senha"/>
+            <p:password id="password" value="#{user.users.senha}" feedback="true" promptLabel="Informe uma senha"
+                        match="passwordConfirma" inline="true"
+                        weakLabel="Muito Fraca" goodLabel="Razoável" strongLabel="Senha Forte"
+                        validatorMessage="Confira a senha digitada"
+                        requiredMessage="A senha não pode ser vazio!"
+                        required="true">
+                <f:validateLength minimum="2"/>
+            </p:password>
+
+            <p:outputLabel for="passwordConfirma" value="Confirme a Senha"/>
+            <p:password id="passwordConfirma" feedback="true" promptLabel="Informe uma senha" inline="true"
+                        weakLabel="Muito Fraca" goodLabel="Razoável" strongLabel="Senha Forte"
+                        requiredMessage="A senha não pode ser vazio!"
+                        required="true">
+                <f:validateLength minimum="2"/>
+            </p:password>
+
+            <f:facet name="footer">
+                <center><p:commandButton value="Editar" process="@form" styleClass="btn-back" icon="fa fa-edit" actionListener="#{user.update}" ajax="true"
+                                         onstart="PF('loadingPage').show()" onsuccess="PF('loadingPage').hide()"
+                                         update="formRegister"/>
+                </center>
+            </f:facet>
+
+        </p:panelGrid>
+    </h:form>
+</h:body>
+</html>

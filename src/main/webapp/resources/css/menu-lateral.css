@@ -1,0 +1,234 @@
+@charset "UTF-8";
+
+.ui-menu.menuprincipal, .ui-menu .ui-menu-child  {
+    background: rgb(51, 55, 59) !important;
+}
+.ui-menubar.menu-superior {
+    background: rgb(51, 55, 59) !important;
+}
+
+.ui-menu.menuprincipal {
+    width: 275px !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    border: none !important;
+    border-radius: 0px !important;
+}
+.ui-menu.menuprincipal :hover{
+    box-shadow: 0 0;
+    background: rgb(47,51,56) !important;
+}
+.menuprincipal .ui-menuitem-link:hover > .ui-menuitem-text  {
+    color: rgb(190,204,217) !important;
+    font-family: 'Montserrat', sans-serif;
+}
+.menuprincipal .ui-menuitem-link:hover > .ui-menuitem-icon  {
+    color: rgb(190,204,217) !important;
+}
+
+.menuprincipal .ui-menuitem-text { /*fonte do submenu*/
+    color:rgb(145,155,166);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10pt
+}
+.ui-widget-header { /*fonte do menu*/
+    color: rgb(190,204,217) !important;
+    text-shadow: none !important;
+}
+.menuprincipal .submenu {
+    background: rgb(51, 55, 59) !important;
+    border-style: solid;
+    border-width: 1px 0px 1px 0px !important;
+    border-color: rgb(16, 27, 41)  !important;
+    border-radius: 0%;
+    color:rgb(145,155,166);
+    text-transform: uppercase;
+    text-shadow: 0px 0px;
+    font-size: 9pt;
+    font-family: 'Roboto', sans-serif;
+}
+
+.ui-widget-header {
+    padding: 10px 0px 10px 0px;
+}
+
+.submenu:hover {
+    box-shadow: 0px 0px;
+}
+
+.ui-submenu{
+    background-color: rgb(51, 55, 59) !important;
+    font-size:20px !important;
+    color: white;
+}
+
+
+
+.menu-lateral .ui-menuitem-icon {
+    color:rgb(145,155,166);
+    margin: 0 9px;
+    padding: 1px 10px;
+
+}
+
+.menu-lateral .ui-icon.ui-icon-triangle-1-e {
+    left: 250px !important;
+}
+.menu-lateral .ui-icon.ui-icon-triangle-1-s {
+    left: 250px !important;
+}
+.menu-lateral .ui-submenu-icon {
+    margin: 0px 2px;
+    padding: 0px 2px;
+
+}
+
+
+
+/* LOGO TIPO DO MENU ESQUERDO LATERAL */
+
+.panel-logotiposystem  {
+    height: 32px;
+    width: 32px;
+}
+
+.panel-logotiposystem .ui-widget-header {
+    padding: 0px !important;
+    margin: 0px !important;
+    background: rgb(43, 47, 51) !important;
+    color: rgb(190,204,217);
+    text-shadow: 0px 0px;
+    height: 94px;
+    width: 292px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20pt;
+    border: 0px;
+    border-radius: 0%;
+
+}
+
+.panel-logotiposystem {
+    background-color: rgb(51, 55, 59);
+    border: 0px;
+}
+.img-user {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+
+}
+
+.ui-layout-unit-title-layout{
+    background-color: rgb(51, 55, 59) !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.txt-user {
+    text-shadow: 0px 0px;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10pt;
+    color: rgb(145,155,166);
+}
+
+.logo-system {
+    width: 275px;
+    height: 60px;
+    background-color: rgb(36, 38, 41) !important;
+}
+
+.logo-txt {
+    display: inline-block;
+    width: 275px;
+    height: 60px;
+    text-align: center;
+    padding-top: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold ;
+    color: transparent;
+    background: #666666;
+    -webkit-background-clip: text;
+    font-size: 20pt;
+    text-shadow: 0px 3px 3px rgba(255,255,255,0.5);
+}
+
+.btn-logout {
+    background: rgb(37, 43, 51) !important;
+    box-shadow: none !important;
+    border-radius: 0;
+    border: 0px;
+}
+.btn-logout .ui-icon {
+    color:  rgb(145,155,166);
+}
+
+
+
+/* MENU SUPERIOR */
+
+
+.menu-superior  {
+    width: 80% !important;
+    height: 100% !important;
+}
+
+.btnTopMenu .ui-button {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    margin: 15px 5px !important;
+    border: none !important;
+    float: right !important;
+}
+.btnTopMenu .ui-button-text {
+    text-align: center !important;
+    background: rgb(36, 38, 41) !important;
+
+    text-shadow: none !important;
+    color:rgb(145,155,166);
+}
+.btnTopMenu .ui-button-icon-left.ui-icon {
+    color:rgb(145,155,166) !important;
+    background:rgb(145,155,166) !important;
+    text-shadow: none !important;
+    font-size: 10pt !important;
+}
+
+
+
+.menu-superior.ui-menu {
+    text-align: right;
+}
+.menu-superior .ui-menu-list {
+    display: inline-block;
+}
+
+.menu-superior .ui-menuitem-link{ /*fonte do submenu*/
+    color:rgb(145,155,166);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10pt;
+}
+
+.menu-superior .ui-submenu-link {
+    margin: 10px 10px;
+    background-color:rgb(145,155,166);
+    color: black;
+}
+.menu-superior .ui-icon {
+    color: rgb(43, 47, 51) !important;
+}
+.menu-superior .ui-submenu-link:hover >  .ui-icon {
+    color:rgb(145,155,166) !important;
+}
+
+.menu-superior .ui-menuitem-link.ui-state-hover{ /*fonte do submenu*/
+    color:rgb(145,155,166);
+    background: rgb(43, 47, 51) !important;
+}
+
+.menu-superior .ui-menu-child   {
+    white-space: nowrap;
+    width: auto !important;
+
+}

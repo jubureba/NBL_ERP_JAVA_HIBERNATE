@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <h:outputStylesheet name="webjars/font-awesome/5.11.2/css/fontawesome-jsf.css"/>
+    <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces"/>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputStylesheet library="css" name="menu-lateral.css"/>
+
+    <title>SYSTEM</title>
+
+</h:head>
+<h:body>
+
+    <div class="grid-container">
+        <div class="index" style="  padding: 20px; height: auto;">
+            <p:panel id="content" styleClass="content" >
+                <ui:include src="#{changePageBean.name}" />
+            </p:panel>
+        </div>
+        <div class="cabecalho" >
+            <header class="header" >
+                <h:form>
+                    <p:growl id="messages"/>
+
+                    <div class="menu-superior">
+                        <p:menuButton styleClass="btnTopMenu" icon="fa fa-bell-o" style="float: right;">
+                            <p:menuitem  value="Nenhuma Notificação! "  />
+
+                        </p:menuButton>
+
+                        <p:menuButton styleClass="btnTopMenu" icon="fa fa-cogs" style="float: right;">
+                            <p:menuitem icon="fa fa-file-excel-o" value="Configuração 01 " />
+
+                        </p:menuButton>
+
+                        <p:menuButton styleClass="btnTopMenu" icon="fa fa-gear" value="#{login.userSession}" style="float: right;">
+
+                            <p:menuitem><p:graphicImage library="imagens" name="logotipo.jpeg" width="100" height="100" title="User Picture" style=" border: 2px black solid;"  /><br/>
+                                <p:outputLabel value="Membro desde: #{login.dateCriation}" />
+                            </p:menuitem>
+                            <p:menuitem value="Sair" icon="fa fa-sign-out" action="#{login.closeSession}"/>
+
+                        </p:menuButton>
+                </div>
+
+                </h:form>
+            </header>
+        </div>
+        <div class="menu-lateral">
+            <h:form id="form">
+
+
+                <div class="logo-system" >
+                    <p:outputLabel styleClass="logo-txt">NBL System</p:outputLabel>
+                </div>
+                <p:menu styleClass="menuprincipal"  toggleable="true">
+                    <f:ajax render=":content">
+                        <p:submenu styleClass="submenu"  id="menuRh" label="Cadastros" collapsed="false">
+                            <p:menuitem value="Funcionários" styleClass="ui-icon-menu" icon="fa fa-black-tie" action="#{changePageBean.setName('/pages/register/user.xhtml')}" onstart="PF('loadingPage').show()" oncomplete="PF('loadingPage').hide()" ajax="true" update=":content"/>
+                            <p:menuitem value="Clientes"  icon="fa fa-users" action="#{changePageBean.setName('/pages/register/client.xhtml')}" onstart="PF('loadingPage').show()" oncomplete="PF('loadingPage').hide()" ajax="true" update=":content"/>
+                            <p:menuitem value="Fornecedores"  icon="fa fa-industry" action="#{changePageBean.setName('/login.xhtml')}" onstart="PF('loadingPage').show()" oncomplete="PF('loadingPage').hide()" ajax="true" update=":content"/>
+                        </p:submenu>
+                        <p:submenu styleClass="submenu" label="Produtos" >
+                            <p:menuitem value="Gerenciar produtos"  icon="fa fa-cubes"/>
+                            <p:menuitem value="Valores de venda"  icon="fa fa-usd"/>
+                            <p:menuitem value="Grupos de produtos"  icon="fa fa-sitemap"/>
+                            <p:menuitem value="Unidades de produtos" icon="fa fa-flask" />
+                        </p:submenu>
+                        <p:submenu styleClass="submenu" label="Orçamentos" >
+                            <p:menuitem value="Produtos" icon="fa fa-cube" />
+                        </p:submenu>
+                        <p:submenu styleClass="submenu" label="Vendas" >
+                            <p:menuitem value="Produtos" icon="fa fa-cube" />
+                            <p:menuitem value="Balcão" icon="fa fa-desktop" />
+                        </p:submenu>
+                        <p:submenu styleClass="submenu" label="Financeiro">
+                            <p:menuitem value="Contas a pagar" icon="fa fa-level-down" />
+                            <p:menuitem value="Contas a receber" icon="fa fa-level-up" />
+                            <p:menuitem value="Fluxo de caixa" icon="fa fa-bar-chart" />
+                            <p:menuitem value="Boletos bancários" icon="fa fa-barcode" />
+                        </p:submenu>
+                        <p:submenu styleClass="submenu" label="Relatórios" >
+                            <p:menuitem value="Cadastros" icon="fa fa-cart-arrow-down" />
+                            <p:menuitem value="Vendas" icon="fa fa-cart-arrow-down" />
+                            <p:menuitem value="Estoque" icon="fa fa-cube" />
+                            <p:menuitem value="Financeiro" icon="fa fa-cart-arrow-down" />
+                            <p:menuitem value="Agendamentos" icon="fa fa-cart-arrow-down" />
+                            <p:menuitem value="Logs do sistema" icon="fa fa-cart-arrow-down" />
+                        </p:submenu>
+                        <p:submenu styleClass="submenu" id="menuNF" label="Notas Fiscais"/>
+                    </f:ajax>
+                </p:menu>
+                <p:tooltip trackMouse="true" for="menuNF" value="Em desenvolvimento."  />
+            </h:form>
+
+        </div>
+        <!-- MENSAGEM MODAL CARREGANDO -->
+        <p:dialog appendTo="@(body)" widgetVar="loadingPage" modal="true"  draggable="false" closable="false" resizable="false" showHeader="false">
+            <center><i class="pi pi-spin pi-spinner" style="font-size: 3em;"></i></center><br/>
+            <p:outputLabel value="Carregando..."/>
+        </p:dialog>
+
+        <div class="Rodape"> Developer Jubureba </div>
+        <div class="Menu-rodape"></div>
+    </div>
+
+</h:body>
+</html>
