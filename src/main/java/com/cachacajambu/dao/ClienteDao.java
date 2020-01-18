@@ -40,4 +40,30 @@ public class ClienteDao {
             em.getTransaction().rollback();
         }
     }
+
+    public void remover(Cliente u) {
+        try {
+            em.getTransaction().begin();
+            u = em.find(Cliente.class, u.getIdcliente());
+            em.remove(u);
+            em.getTransaction().commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            em.getTransaction().rollback();
+        }
+    }
+
+    public void removerById(final int id) {
+        try {
+            Cliente cliente = getById(id);
+            remover(cliente);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Cliente getById(final int id) {
+        return em.find(Cliente.class, id);
+    }
 }

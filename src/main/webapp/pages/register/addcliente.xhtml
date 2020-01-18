@@ -9,99 +9,77 @@
     <p:messages id="messages" closable="true">
         <p:autoUpdate/>
     </p:messages>
-    <p:growl id="growl" showDetail="true" life="5000"/>
-    <p:fieldset legend="Dados Pessoais" toggleable="true" toggleSpeed="500">
+    <h:form id="formClienteRegister">
+        <p:panelGrid columns="2" style="width: 100% !important;">
 
-        <h:form id="formClienteRegister">
-            <p:panelGrid columns="2" >
-                <p:row>
-                    <p:column colspan="2">
-                        <p:outputLabel for="cpf" value="CPF  "/>
-                        <p:inputMask id="cpf" value="#{cb.cliente.cpf}" requiredMessage="O cpf não pode ser vazio!" type="text"
-                                     mask="999.999.999-99">
-                            <f:validateLength maximum="11" for="cpf"/>
-                        </p:inputMask>
-                    </p:column>
-                </p:row>
-                <p:row>
-                    <p:column colspan="2">
-                        <p:outputLabel for="nome" value="Nome"/>
-                        <p:inputText id="nome" value="#{cb.cliente.nome}" required="true"
-                                     requiredMessage="O nome não pode ser vazio!" type="text">
-                            <f:validateLength minimum="2" for="nome"/>
-                        </p:inputText>
-                    </p:column>
-                </p:row>
-                <p:row>
-                    <p:column colspan="2">
-                        <p:outputLabel for="email" value="Email"/>
-                        <p:inputText id="email" value="#{cb.cliente.email}" requiredMessage="O email não pode ser vazio!"
-                                     type="email"/>
-                    </p:column>
-                </p:row>
-                <p:row>
-                    <p:column colspan="2">
-                        <p:outputLabel for="telefone" value="Telefone"/>
-                        <p:inputMask mask="(99)99999-9999" id="telefone" value="#{cb.cliente.phone}"/>
-                    </p:column>
-                </p:row>
+
+
+            <p:outputLabel for="cpf" value="CPF  "/>
+            <p:inputMask id="cpf" value="#{cb.cliente.cpf}"
+                         mask="999.999.999-99" maxlength="14" converter="cpfConverter">
+
+            </p:inputMask>
+
+            <p:outputLabel for="nome" value="Nome"/>
+            <p:inputText id="nome" value="#{cb.cliente.nome}" required="true"
+                         requiredMessage="O nome não pode ser vazio!" type="text">
+                <f:validateLength minimum="2" for="nome"/>
+            </p:inputText>
+
+
+            <p:outputLabel for="email" value="Email"/>
+            <p:inputText id="email" value="#{cb.cliente.email}" requiredMessage="O email não pode ser vazio!"
+                         type="email"/>
+
+            <p:outputLabel for="telefone" value="Telefone"/>
+            <p:inputMask mask="(99)99999-9999" id="telefone" value="#{cb.cliente.phone}"/>
+        </p:panelGrid>
+
+            <p:panelGrid columns="2" id="panelCep" style="width: 100% !important;">
+                <h:outputLabel value="CEP     " for="cep"/>
+                <p:commandButton icon="fa fa-search" action="#{cb.encontraCEP}" id="btnCep"  styleClass="white-button"
+                                 update="formClienteRegister:frmResult"  partialSubmit="true" process="panelCep"
+                                 converter="cepConverter" >
+                <p:inputMask id="cep" mask="99999-999" value="#{cb.cliente.cep}" >
+
+                </p:inputMask>
+
+                </p:commandButton>
+
             </p:panelGrid>
-        </h:form>
-    </p:fieldset>
-    <p:panelGrid columns="2">
-        <f:facet name="header">
-            <p:graphicImage name="demo/images/misc/kobe.png" />
-        </f:facet>
-
-        <h:outputText value="Name:" />
-        <h:outputText value="Kobe Bryant" />
-
-        <h:outputText value="Team:" />
-        <h:outputText value="Los Angeles Lakers" />
-
-        <h:outputText value="Position:" />
-        <h:outputText value="Shooting Guard" />
-
-        <h:outputText value="Number:" />
-        <h:outputText value="24" />
-
-        <h:form id="frmBusca">
-            <div class="ui-inputgroup">
-                <h:outputLabel value="CEP: " for="cep"/>
-                <p:inputMask id="cep" mask="99999-999" value="#{cepService.cep}"/>
-                <p:commandButton icon="fa fa-search" action="#{cepService.encontraCEP}" styleClass="white-button"
-                                 update="frmResult" onstart="PF('loadingCep').show()"
-                                 onsuccess="PF('loadingCep').hide()"/>
-            </div>
-        </h:form>
 
 
-        <h:form id="frmResult">
-                <h:outputLabel value="UF" for="uf"/>
-                <p:inputText id="uf" size="5" value="#{cepService.estado}#{cb.cliente.uf}"/>
+        <p:blockUI block="panelCep frmResult" trigger="btnCep" />
 
-                <h:outputLabel value="Logradouro" for="logradouro"/>
-                <p:inputText size="50" id="logradouro"
-                             value="#{cepService.tipoLogradouro}#{cepService.logradouro}#{cb.cliente.logradouro}"/>
+        <p:panelGrid columns="2" widgetVar="frmResult" id="frmResult" style="width: 100% !important;">
+            <h:outputLabel value="UF" for="uf"/>
+            <p:inputText id="uf" size="5" value="#{cb.cliente.uf}" />
 
-                <h:outputLabel value="Cidade" for="cidade"/>
-                <p:inputText id="cidade" size="50" value="#{cepService.cidade}#{cb.cliente.municipio}"/>
+            <h:outputLabel value="Logradouro" for="logradouro"/>
+            <p:inputText size="50" id="logradouro"
+                         value="#{cb.cliente.logradouro}"/>
 
-                <h:outputLabel value="Bairro" for="bairro"/>
-                <p:inputText id="bairro" size="25" value="#{cepService.bairro}#{cb.cliente.bairro}"/>
+            <h:outputLabel value="Cidade" for="cidade"/>
+            <p:inputText id="cidade" size="50" value="#{cb.cliente.municipio}"/>
 
-        </h:form>
+            <h:outputLabel value="Bairro" for="bairro"/>
+            <p:inputText id="bairro" size="25" value="#{cb.cliente.bairro}"/>
 
-        <f:facet name="footer">
-            <h:form>
+            <h:outputLabel value="Numero" for="numero"/>
+            <p:inputText id="numero" size="10" value="#{cb.cliente.numero}"/>
+
+            <h:outputLabel value="Complemento" for="complemento"/>
+            <p:inputText id="complemento" size="50" value="#{cb.cliente.complemento}"/>
+
+            <f:facet name="footer">
                 <center><p:commandButton value="Salvar" actionListener="#{cb.save}" ajax="true" icon="fa fa-save"
                                          styleClass="btn-back"
                                          onstart="PF('loadingPage').show()" onsuccess="PF('loadingPage').hide()"
-                                         update=":formClienteRegister :frmBusca :frmResult"/>
-                </center>
-            </h:form>
-        </f:facet>
-    </p:panelGrid>
+                                         update="formClienteRegister"/></center>
+            </f:facet>
+        </p:panelGrid>
+
+    </h:form>
 
     <p:dialog appendTo="@(this)" widgetVar="loadingCep" modal="true" draggable="false" closable="false"
               resizable="false" showHeader="false">

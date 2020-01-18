@@ -12,9 +12,6 @@
             <f:facet name="header" >
                 <span class="fa fa-users"></span>  Listar Clientes
             </f:facet>
-            <p:growl id="msgs1" showDetail="true"/>
-
-
 
             <p:commandButton styleClass="btnTable" icon="fa fa-plus" value="Novo" type="button" onclick="PF('modalAddCliente').show();" />
 
@@ -41,11 +38,9 @@
 
             <p:dataTable var="c" value="#{cb.list}" widgetVar="table" paginator="true" rows="5" styleClass="datatable" currentPageReportTemplate="itens: {startRecord} a {endRecord} de {totalRecords} - páginas: {currentPage}/{totalPages}"
                          paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}" paginatorPosition="bottom"
-                         rowsPerPageTemplate="5,10,20" id="tableViewUser"  scrollable="true" scrollHeight="350"
-
-            >
+                         rowsPerPageTemplate="5,10,20" id="tableViewUser"  scrollable="true" scrollHeight="350" reflow="true">
                 <f:facet name="header">
-
+                    <p:growl id="msgs1" showDetail="true"/>
                 </f:facet>
 
                 <!-- <p:ajax event="rowSelect" process="@this" update="editUser  formTable:tableViewUser" onstart="PF('modalEditUser').show();" listener="#{user.onRowSelect}"/> -->
@@ -87,7 +82,7 @@
                         <f:setPropertyActionListener value="#{c}" target="#{cb.cliente}" />
                     </p:commandButton>
                     <p:tooltip position="top" for="btnEdit" value="Editar"  />
-                    <p:commandButton icon="fa fa-trash" id="btnDel" styleClass="btnDeleteTable" update="formTable:tableViewUser formTable:msgs1" action="#{cb.delete(c.idcliente)}" >
+                    <p:commandButton icon="fa fa-trash" id="btnDel" styleClass="btnDeleteTable" update="formTable:tableViewUser tableViewUser:msgs1" action="#{cb.delete(c.idcliente)}" >
                         <p:confirm header="Confirmação" message="Tem certeza que deseja excluir #{c.nome}" icon="fa fa-exclamation-triangle" />
                     </p:commandButton>
 
@@ -129,7 +124,7 @@
             </p:outputPanel>
             <f:facet name="header">
                 <h:form>
-                    <p:commandButton styleClass="btn-back" value="« voltar"  onclick="PF('detailsUser').hide();" />
+                    <p:commandButton styleClass="btn-back" value="« voltar"  onclick="PF('detailsClient').hide();" />
                     <p:outputLabel value="Detalhes" />
                 </h:form>
             </f:facet>
@@ -142,7 +137,7 @@
         <ui:include src="/pages/register/addcliente.xhtml" />
         <f:facet name="header">
             <h:form>
-                <p:commandButton update="formTable:tableViewUser" styleClass="btn-back" value="« voltar"  onclick="PF('modalAddCliente').hide();" />
+                <p:commandButton update="formTable:tableViewUser" styleClass="btn-back" value="« voltar"  onclick="PF('modalAddCliente').hide();" action="#{cb.init}" />
                 <p:outputLabel value="Adicionar Cliente" />
             </h:form>
         </f:facet>

@@ -14,6 +14,11 @@
 
     <title>SYSTEM</title>
 
+    <script>
+        $(document).ready(function() {
+            document.getElementById("#menuRegister").click();
+        });
+    </script>
 </h:head>
 <h:body>
 
@@ -61,7 +66,7 @@
                 </div>
                 <p:menu styleClass="menuprincipal"  toggleable="true">
                     <f:ajax render=":content">
-                        <p:submenu styleClass="submenu"  id="menuRh" label="Cadastros" collapsed="false">
+                        <p:submenu styleClass="submenu"  id="menuRegister" label="Cadastros" collapsed="false">
                             <p:menuitem value="Funcionários" styleClass="ui-icon-menu" icon="fa fa-black-tie" action="#{changePageBean.setName('/pages/register/user.xhtml')}" onstart="PF('loadingPage').show()" oncomplete="PF('loadingPage').hide()" ajax="true" update=":content"/>
                             <p:menuitem value="Clientes"  icon="fa fa-users" action="#{changePageBean.setName('/pages/register/client.xhtml')}" onstart="PF('loadingPage').show()" oncomplete="PF('loadingPage').hide()" ajax="true" update=":content"/>
                             <p:menuitem value="Fornecedores"  icon="fa fa-industry" action="#{changePageBean.setName('/login.xhtml')}" onstart="PF('loadingPage').show()" oncomplete="PF('loadingPage').hide()" ajax="true" update=":content"/>
