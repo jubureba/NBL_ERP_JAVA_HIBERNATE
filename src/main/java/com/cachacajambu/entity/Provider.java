@@ -7,6 +7,7 @@ package com.cachacajambu.entity;
 
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +17,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -42,6 +45,12 @@ import javax.xml.bind.annotation.XmlRootElement;
    @NamedQuery(name = "Provider.findByNumero", query = "SELECT p FROM Provider p WHERE p.numero = :numero"),
    @NamedQuery(name = "Provider.findByComplemento", query = "SELECT p FROM Provider p WHERE p.complemento = :complemento")})
 public class Provider implements Serializable {
+
+   @Column(name = "cpf")
+   private BigInteger cpf;
+   @Column(name = "data_criacao")
+   @Temporal(TemporalType.TIMESTAMP)
+   private Date dataCriacao;
 
    private static final long serialVersionUID = 1L;
    @Id
@@ -224,6 +233,22 @@ public class Provider implements Serializable {
    @Override
    public String toString() {
       return "com.cachacajambu.entity.Provider[ idprovider=" + idprovider + " ]";
+   }
+
+   public BigInteger getCpf() {
+      return cpf;
+   }
+
+   public void setCpf(BigInteger cpf) {
+      this.cpf = cpf;
+   }
+
+   public Date getDataCriacao() {
+      return dataCriacao;
+   }
+
+   public void setDataCriacao(Date dataCriacao) {
+      this.dataCriacao = dataCriacao;
    }
    
 }

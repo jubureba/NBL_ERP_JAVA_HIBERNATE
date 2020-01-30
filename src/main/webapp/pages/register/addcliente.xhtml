@@ -12,11 +12,14 @@
     <h:form id="formClienteRegister">
         <p:panelGrid columns="2" style="width: 100% !important;">
 
+            <p:selectOneMenu  for="cpf" styleClass="cb-cpf" value="#{cb.tipos}"  >
+                <f:selectItem itemLabel="CPF" itemValue="CPF"/>
+                <f:selectItem itemLabel="CNPJ" itemValue="CNPJ"/>
+                <p:ajax update="cpf" event="change" listener="#{cb.mudarMascara}"/>
+            </p:selectOneMenu>
 
-
-            <p:outputLabel for="cpf" value="CPF  "/>
-            <p:inputMask id="cpf" value="#{cb.cliente.cpf}"
-                         mask="999.999.999-99" maxlength="14" converter="cpfConverter">
+            <p:inputMask id="cpf"  value="#{cb.cliente.cpf}"
+                         mask="#{cb.mascara}"  converter="cpfConverter">
 
             </p:inputMask>
 
@@ -35,8 +38,11 @@
             <p:inputMask mask="(99)99999-9999" id="telefone" value="#{cb.cliente.phone}"/>
         </p:panelGrid>
 
-            <p:panelGrid columns="2" id="panelCep" style="width: 100% !important;">
-                <h:outputLabel value="CEP     " for="cep"/>
+            <p:panelGrid columns="2" id="panelCep" >
+                <h:outputLabel value="CEP" for="cep"  >
+                    <p:spacer width="91" height="0"/>
+                </h:outputLabel>
+
                 <p:commandButton icon="fa fa-search" action="#{cb.encontraCEP}" id="btnCep"  styleClass="white-button"
                                  update="formClienteRegister:frmResult"  partialSubmit="true" process="panelCep"
                                  converter="cepConverter" >

@@ -28,6 +28,7 @@ header {
     height: 60px !important;
 }
 
+
 .panel-logotiposystem {
     width: 275px ;
 }
@@ -199,7 +200,7 @@ header {
 }
 
 .btnViewTable {
-    background: #5395ff !important;
+    background: #252b33 !important;
     color: white !important;
     font-size: 10pt !important;
     box-shadow: none !important;
@@ -209,7 +210,7 @@ header {
     text-align: center !important;
 }
 .btnEditTable {
-    background: #ff9d5b !important;
+    background: #252b33 !important;
     color: white !important;
     font-size: 10pt !important;
     box-shadow: none !important;
@@ -220,7 +221,7 @@ header {
 
 }
 .btnDeleteTable {
-    background: #ff2b63 !important;
+    background: #252b33 !important;
     color: white !important;
     font-size: 10pt !important;
     box-shadow: none !important;
@@ -231,7 +232,7 @@ header {
 }
 
 .ui-state-hover {
-    background: rgb(190,204,217) !important;
+    background: rgb(41, 217, 120) !important;
 }
 .ui-menuitem-text {
     font-size: 10pt;
@@ -242,7 +243,11 @@ header {
     left: 96px !important;
 }
 
-/* ======================= MODAL ================================= */
+.ui-tooltip-text {
+    font-size: 10pt !important;
+}
+
+    /* ======================= MODAL ================================= */
 .modal-dialog {
     height: auto !important;
 }
@@ -294,6 +299,10 @@ header {
 }
 .index {
     grid-area: index;
+    height: auto;
+    padding: 0px 50px;
+
+
 }
 .rodape {
     grid-area: rodape;
@@ -301,15 +310,19 @@ header {
 }
 @media only screen and (max-width: 1700px) {
     .content {
-        margin-top: 50px !important;
+        margin-top: 10px !important;
     }
 }
 @media only screen and (max-height: 900px) {
     .content {
-        margin-top: 50px !important;
+        margin-top: 45px !important;
     }
 
 }
+
+
+
+
 .ui-column-filter {
     display:  none !important;
 }
@@ -325,11 +338,32 @@ header {
 .search {
     float: right;
     margin: 10px 5px !important;
+    top: 160px;
+    left: 1500px;
+    position: absolute;
 }
+
 
 .search .ui-inputfield{
     background: #beccd9 !important;
     color: #33373b !important;
     font-size: 10pt;
 
+}
+
+.cb-cpf .ui-selectonemenu-label, .cb-cpf {
+    width: 88px !important;
+    background: white !important;
+    color: #33373b !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.cb-cpf .ui-selectonemenu-trigger {
+    background: white !important;
+    box-shadow: none !important;
+}
+
+.cep {
+    width: 90px !important;
 }

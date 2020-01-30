@@ -31,12 +31,7 @@
                 <p:menuitem icon="fa fa-file-excel-o" value="Exportar " />
             </p:menuButton>
 
-            <div class="search">
-                <div class="ui-inputgroup">
-                    <p:inputText placeholder="Pesquisar:" onkeyup="PF('table').filter()" id="globalFilter1"  />
-                    <p:commandButton icon="fa fa-search"  styleClass="white-button" />
-                </div>
-            </div>
+
 
             <p:separator style="width: 100%; opacity: .4; position: relative;  margin: 15px 0 20px 0; border-top: 1px dashed #8c8b8b;" />
 
@@ -44,11 +39,16 @@
 
             <p:dataTable var="userList" value="#{user.list}" widgetVar="table" paginator="true" rows="5" styleClass="datatable" currentPageReportTemplate="itens: {startRecord} a {endRecord} de {totalRecords} - páginas: {currentPage}/{totalPages}"
                          paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}" paginatorPosition="bottom"
-                         rowsPerPageTemplate="5,10,20" id="tableViewUser"  scrollable="true" scrollHeight="350"
+                         rowsPerPageTemplate="5,10,20" id="tableViewUser"  scrollable="true" scrollHeight="350" emptyMessage="No cars found with given criteria" filteredValue="#{user.filterList}"
 
                          >
                 <f:facet name="header">
-
+                    <div class="search">
+                        <div class="ui-inputgroup">
+                            <p:inputText placeholder="Pesquisar:" onkeyup="PF('table').filter()" id="globalFilter"  />
+                            <p:commandButton icon="fa fa-search"  styleClass="white-button" />
+                        </div>
+                    </div>
                 </f:facet>
 
                <!-- <p:ajax event="rowSelect" process="@this" update="editUser  formTable:tableViewUser" onstart="PF('modalEditUser').show();" listener="#{user.onRowSelect}"/> -->

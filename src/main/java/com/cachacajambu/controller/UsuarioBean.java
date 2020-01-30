@@ -139,6 +139,9 @@ public class UsuarioBean implements Serializable{
 		this.filterList = filterList;
 	}
 
+	public List<Users> getFilterList() {
+		return filterList;
+	}
 
 	public Users getUsers() {
 		if(users == null ) {

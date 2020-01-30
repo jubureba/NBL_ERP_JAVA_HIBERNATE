@@ -99,7 +99,7 @@ public class ClienteBean implements Serializable {
         if (tipos.equals("CPF")) {
             mascara = "999.999.999-99";
         }else if (tipos.equals("CNPJ")) {
-
+            mascara = "99.999.999/9999-99";
         }
         //TODO: Continue seu código aqui
     }
